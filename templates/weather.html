@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>weather</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <form action="http://127.0.0.1:5000/weather" method="get" class="container">
+      <h1 class="welcome-msg">{{welcome_message}}</h1>
+      <p>
+        <input type="text" name="city" placeholder="Введите город" id="city" />
+      </p>
+      <input type="submit" value="Get weather" class="button" id="btn" />
+    </form>
+    <div class="weather_div">
+      <img src="{{img_src}}" alt="" />
+      {%for i in data%} 
+        <p>{{i}}</p>
+        {%endfor%} 
+    </div>
+  </body>
+</html>
